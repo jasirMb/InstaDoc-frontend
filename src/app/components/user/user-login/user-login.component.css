@@ -1,0 +1,69 @@
+mat-tab-group {
+  margin-bottom: 48px;
+}
+.full_login{
+  height: 100%;
+  background-image: url("/assets/images/AdobeStock_215322148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* linear-gradient(to right top, #74d4dc, #72d7dd, #71d9dd, #6fdcdd, #6ededd, #7ae1e8, #87e4f1, #96e7f9, #baebff, #daefff, #f1f6ff, #ffffff); */
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+mat-tab-label {
+  justify-content: space-around;
+  display: flex;
+  
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.tabclass {
+  width: 50%;
+  margin-top: 6rem;
+  border-radius:.7rem ;
+  background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
+  border: 2px solid rgb(0, 0, 0);
+  padding-left: 5rem;
+}
+.login-card{
+  background-color: #380036;
+  background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
+    border-radius: .7rem;
+    border: 20px;
+    
+}
+mat-form-field{
+    width: 100%;
+}
+mat-card-title{
+    justify-content: center;
+    margin: 3rem;
+    color: beige;
+}
+.mat-mdc-card-title{
+    display: flex;
+} 
+mat-card-title{
+   margin: rem;
+}
+.loginfull{
+  display: flex;
+}
+
+
+.mat-mdc-tab-body-content{
+  display: flex;
+}
+.container-login{
+  justify-content: center;
+  align-items: center;
+}
+.login1-image{
+  padding: 0% 30%;
+  
+}

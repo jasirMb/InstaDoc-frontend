@@ -1,0 +1,18 @@
+.navbar{
+    background-color: rgb(255, 255, 255);
+    border: 10px;
+   position:fixed;
+   z-index: 10;
+  
+   
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  mat-toolbar h3{
+    font-weight: 500;
+    display: inline-block;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+ 
