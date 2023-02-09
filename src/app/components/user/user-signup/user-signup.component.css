@@ -1,0 +1,109 @@
+mat-tab-group {
+  margin-bottom: 48px;
+  
+}
+.full_signup {
+  height: 100%;
+  background-image: url("/assets/images/AdobeStock_215322148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+  
+}
+.signupError{
+  color: red;
+  text-align: center;
+}
+
+
+mat-tab-label {
+  justify-content: space-around;
+  display: flex;
+}
+.container {
+  display: flex;
+  justify-content: center;
+   overflow-y: hidden;
+}
+.tabclass {
+  width: 50%;
+  margin-top: 6rem;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(
+    to right top,
+    #00e9ff,
+    #00cef9,
+    #00b3f0,
+    #0097e1,
+    #007acd,
+    #417ac9,
+    #5b7ac5,
+    #6d7ac0,
+    #9599cf,
+    #bab9df,
+    #dddbef,
+    #ffffff
+  );
+  border: 2px solid rgb(0, 0, 0);
+  padding-left: 5rem;
+  height: 100%;
+  overflow: hidden;
+}
+.signup-card {
+  background-color: #380036;
+  background-image: linear-gradient(
+    to right top,
+    #00e9ff,
+    #00cef9,
+    #00b3f0,
+    #0097e1,
+    #007acd,
+    #417ac9,
+    #5b7ac5,
+    #6d7ac0,
+    #9599cf,
+    #bab9df,
+    #dddbef,
+    #ffffff
+  );
+  border-radius: 0.7rem;
+  border: 20px;
+  
+}
+mat-form-field {
+  width: 90%;
+}
+mat-card-title {
+  justify-content: center;
+  margin: 3rem;
+  color: beige;
+}
+.mat-mdc-card-title {
+  display: flex;
+}
+mat-card-title {
+  margin: rem;
+}
+.signupfull {
+  display: flex;
+  margin: 0 auto;
+}
+
+.mat-mdc-tab-body-content {
+  display: flex;
+  
+}
+.container-signup {
+  justify-content: center;
+  align-items: center;
+}
+.signup1-image {
+  padding: 0% 30%;
+}
+.formField{
+  margin-bottom: 1rem;
+}
+mat-error{
+  font-size: medium;
+}

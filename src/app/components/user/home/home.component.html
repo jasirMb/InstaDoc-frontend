@@ -1,8 +1,99 @@
-
-
 <div>
-    <h3 >
-        its home
-    </h3>
+  <app-user-nav></app-user-nav>
 </div>
-<router-outlet></router-outlet>
+<div class="full-home">
+  <div class="searchdiv">
+    <mat-form-field appearance="fill" class="location" [style.width.%]="20">
+      <mat-label><mat-icon>location_on</mat-icon>Location</mat-label>
+      <mat-select>
+        <mat-option value="Kochi"> Kochi</mat-option>
+        <mat-option value="Kozhikode">Kozhikode</mat-option>
+        <mat-option value="Wayanad">Wayanad</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="doctor_search" [style.width.%]="30">
+      <mat-label>Doctors</mat-label>
+      <input matInput placeholder="Ex. Ramjith" />
+    </mat-form-field>
+    <div></div>
+    <div class="banner_image">
+      <app-home-banner></app-home-banner>
+    </div>
+    <div class="service_card">
+      <app-servicecard></app-servicecard>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm-12 col-md-6 col-lg-3 column">
+          <div class="card h-100 w-100" style="width: 15rem">
+            <img
+              class="card-img-top"
+              src="/assets/images/online.webp"
+              alt="Card image cap"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="card-title">Online Consultation</h2>
+              <p class="card-text">
+                <b>Skip the travel!</b> <br />
+                Take Online Doctor Consultation
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col col-sm-12 col-md-6 col-lg-3 column">
+          <div class="card h-100 w-100" style="width: 15rem">
+            <img
+              class="card-img-top"
+              src="/assets/images/doctor-character-background_1270-84.avif"
+              height="200px"
+              alt="Card image cap"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="card-title">Book Appointments</h2>
+              <p class="card-text">
+                <b>find Doctor</b> <br />
+                Get appointments without any hassle
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col col-sm-12 col-md-6 col-lg-3 column">
+          <div class="card h-100 w-100" style="width: 15rem">
+            <img
+              class="card-img-top"
+              src="/assets/images/documents.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="card-title">Medical records</h2>
+              <p class="card-text">
+                <b> get organized</b> <br />
+                All your medical records at one place
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col col-sm-12 col-md-6 col-lg-3 column">
+          <div class="card h-100 w-100" style="width: 15rem">
+            <img
+              class="card-img-top"
+              src="/assets/images/concepts-online-payment-methods-icons-online-payment-gat-illustration-gateway-electronic-funds-flat-style-design-48874520.jpg" 
+              alt="Card image cap"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="card-title">Online Payment</h2>
+              <p class="card-text">
+                <b> Cashless payment</b> <br />
+                we spport all debit and credit cards
+              </p>
+              <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

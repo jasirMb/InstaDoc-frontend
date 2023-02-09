@@ -1,0 +1,14 @@
+.fullcontainer{
+    width: 70%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding-top: 50px;
+
+}
+.fullcontainer h1{
+    text-align: center;
+}
+.cardheader{
+    font-weight: 700;
+    
+}

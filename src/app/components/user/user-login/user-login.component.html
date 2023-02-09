@@ -1,4 +1,7 @@
-<div class="container full_login">
+<div>
+  <app-user-nav></app-user-nav>
+</div>
+<div class="container-login full_login">
   <div class="tabclass">
     <mat-tab-group
       animationDuration="1000ms"
@@ -12,15 +15,16 @@
               <div class="">
                 <mat-card class="login-card col-11">
                   <mat-card-title>Login</mat-card-title>
+                  <div><p class="signupError">{{ errorMessage }}</p></div>
                   <mat-card-content>
                     <form
                       [formGroup]="loginForm"
                       (ngSubmit)="onLoginSubmit(loginForm)"
                     >
-                      <mat-form-field appearance="outline">
+                      <mat-form-field appearance="outline" class="emailField">
                         <mat-label>Email Address</mat-label>
                         <input
-                          class="mt-2"
+                          class=""
                           matInput
                           placeholder="Enter you email address"
                           formControlName="email"
@@ -39,7 +43,7 @@
                           >Email is required</mat-error
                         >
                       </mat-form-field>
-                      <mat-form-field appearance="outline">
+                      <mat-form-field appearance="outline" class="passfield">
                         <mat-label>Password</mat-label>
                         <input
                           matInput
@@ -74,27 +78,27 @@
                         </mat-error>
                       </mat-form-field>
                       <div style="text-align: center">
-                        <button mat-raised-button color="primary">Login</button>
+                        <button mat-raised-button color="primary" type="submit"(click)="onSubmit()">Login</button>
                       </div>
                     </form>
                   </mat-card-content>
                 </mat-card>
               </div>
             </div>
-            <div class="login_image" mat-card-content>
+            <!-- <div class="login_image" mat-card-content>
               <img
                 class="login1-image"
                 style="width: 40%"
                 src="/assets/images/illustration.webp"
               />
-            </div>
+            </div> -->
           </div>
         </mat-tab>
       </div>
        <!-- signup -->
        <div class="logindiv">
-        <mat-tab label="Signup" class="fiy">
-          <div class="container-login" style="display: flex">
+        <mat-tab label="Signup" class="fiy"><app-user-signup></app-user-signup>
+          <!-- <div class="container-login" style="display: flex">
             <div class="loginfull row">
               <div class="">
                 <mat-card class="login-card col-11">
@@ -175,8 +179,10 @@
                 src="/assets/images/illustration.webp"
               />
             </div>
-          </div>
+          </div> -->
         </mat-tab>
-      </div> 
+      </div>
+    </mat-tab-group>
+  </div> 
 
-<router-outlet></router-outlet>
+

@@ -1,0 +1,114 @@
+<app-admin-nav></app-admin-nav>
+<div class="fullcontainer mb-5">
+  <div class="row p-0 d-flex justify-content-around fullcards">
+    <h1 class="cardheader">Pending requests</h1>
+    <div
+      class="card text-white bg-dark mb-3 text-center col-lg-4 col-md-6 col-sm-12"
+      style="max-width: 18rem"
+      *ngFor="let doctor of pendingDoctors"
+    >
+      <div class="card-header">Name: {{ doctor.doctorName }}</div>
+      <div class="card-body">
+        <h5 class="card-title">DoctorId: {{ doctor.doctorId }}</h5>
+        <h5 class="card-title">City: {{ doctor.city }}</h5>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            (click)="openDialog(doctor)"
+          >
+            More details
+          </button>
+        </div>
+        <div class="buttons d-flex justify-content-between mt-5">
+          <button type="button" class="btn btn-outline-success" (click)="approve(doctor.id)">Approve</button>
+          <button type="button" class="btn btn-outline-danger">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tablefull ">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Mia"
+        #input
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>No</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="doctorName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.doctorName }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+          <td mat-cell *matCellDef="let row">{{ row.city }}</td>
+        </ng-container>
+
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Experience</th>
+          <td mat-cell *matCellDef="let row">{{ row.experience }}</td>
+        </ng-container>
+        <ng-container matColumnDef="specialization">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Specialization
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.specialization }}</td>
+        </ng-container>
+        <ng-container matColumnDef="doctorId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>DoctorId</th>
+          <td mat-cell *matCellDef="let row">{{ row.doctorId }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            
+            <td mat-cell *matCellDef="let row" >
+                <ng-container *ngIf="row.access; then trueButton else falseButton"></ng-container>
+                <ng-template #trueButton>
+                    
+                    <button mat-fab extended color="warn" >
+                   <mat-icon>block</mat-icon>
+                   Block
+                 </button>
+                </ng-template>
+                <ng-template #falseButton>
+                    
+                    <button mat-fab extended color="warn" >
+                   <mat-icon>check_circle_outline</mat-icon>
+                   unblock
+                 </button>
+                </ng-template>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

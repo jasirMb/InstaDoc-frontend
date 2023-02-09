@@ -2,15 +2,20 @@ mat-tab-group {
   margin-bottom: 48px;
 }
 .full_login{
-  height: 100%;
+  height: auto;
   background-image: url("/assets/images/AdobeStock_215322148.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  /* overflow: -moz-hidden-unscrollable; */
+ margin-left: 0px;
+ margin-right: 0px;
+ width: 100%;
+ margin: 0;
   /* linear-gradient(to right top, #74d4dc, #72d7dd, #71d9dd, #6fdcdd, #6ededd, #7ae1e8, #87e4f1, #96e7f9, #baebff, #daefff, #f1f6ff, #ffffff); */
 }
 
 .example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  
   background-size: cover;
 }
 mat-tab-label {
@@ -18,7 +23,7 @@ mat-tab-label {
   display: flex;
   
 }
-.container {
+.container-login {
   display: flex;
   justify-content: center;
 }
@@ -27,18 +32,22 @@ mat-tab-label {
   margin-top: 6rem;
   border-radius:.7rem ;
   background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
-  border: 2px solid rgb(0, 0, 0);
-  padding-left: 5rem;
+  border: 1px solid rgb(0, 0, 0);
+  height: 100%;
+  padding-left: 5px;
+  overflow: hidden;
+ 
+    
 }
 .login-card{
-  background-color: #380036;
+  /* background-color: #685f5f; */
   background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
     border-radius: .7rem;
-    border: 20px;
+    width: 100%;
     
 }
 mat-form-field{
-    width: 100%;
+    width: 100% ;
 }
 mat-card-title{
     justify-content: center;
@@ -66,4 +75,17 @@ mat-card-title{
 .login1-image{
   padding: 0% 30%;
   
+}
+.emailField  {
+  margin-bottom: 1rem;
+}
+.passfield{
+  margin-bottom: 1rem;
+}
+mat-error{
+  font-size: medium;
+}
+.signupError{
+  color: red;
+  text-align: center;
 }

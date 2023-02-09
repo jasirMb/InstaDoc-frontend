@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 20%;
+    border: 2px;
+    background-color: rgb(231, 229, 229);
+  }
+  
+  .example-header-image {
+   
+    background-size: cover;
+  }
+
+  

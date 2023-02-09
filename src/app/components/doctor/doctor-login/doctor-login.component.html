@@ -1,0 +1,73 @@
+<app-doctor-nav> </app-doctor-nav>
+<div class="containe">
+  <div class="logincard">
+    <mat-card class="example-card">
+      <mat-card-header class="loginheader">
+        <mat-card-title>LOGIN</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm)">
+          <mat-form-field appearance="outline" class="emailfield">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Enter your Email"
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="allControls?.email?.errors?.email && loginSubmitted"
+              >Invalid Email</mat-error
+            ><mat-error
+              *ngIf="allControls?.email?.errors?.required && loginSubmitted"
+              >Email is required</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="passfield">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Your passwod"
+              formControlName="password"
+            />
+            <mat-error
+                          *ngIf="
+                            allControls?.password?.errors?.required &&
+                            loginSubmitted
+                          "
+                          >Password is required</mat-error
+                        >
+                        <mat-error
+                          *ngIf="
+                            allControls?.password?.errors?.minlength &&
+                            loginSubmitted
+                          "
+                          >Password should contain atleast 8 characters
+                        </mat-error>
+          </mat-form-field>
+          <div style="text-align: center">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="regbtn">
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        [routerLink]="['/doctor/signup']"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,30 @@
+.full-home{
+   margin-left: 1rem; 
+}
+.location{
+    margin-top: 3rem;
+}
+at-label{
+    height: 200px;
+}
+.searchdiv{
+    display: inline;
+}
+.doctor_search{
+    padding-left: 10px;
+}
+.service_card{
+    margin-top: 40px;
+}
+.card-title{
+    font-weight: 800;
+}
 
-  
+.card {
+    height: 100px; 
+}
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}

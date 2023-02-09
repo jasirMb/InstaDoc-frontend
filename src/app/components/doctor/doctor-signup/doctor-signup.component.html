@@ -1,0 +1,136 @@
+<app-doctor-nav> </app-doctor-nav>
+<div class="containe">
+  <div class="logincard">
+    <mat-card class="example-card">
+      <mat-card-header class="loginheader">
+        <mat-card-title>SIGNUP</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="onsignupSubmit(signupForm)">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Your email" formControlName="email" />
+          </mat-form-field>
+          <mat-error
+            *ngIf="allControls?.email?.errors?.email && signupSubmitted"
+            >email Id is invalid!</mat-error
+          >
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              placeholder="Enter your Email"
+              formControlName="name"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              placeholder="Enter your city"
+              formControlName="city"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>specialization</mat-label>
+            <mat-select formControlName="specializations">
+              <mat-option
+                *ngFor="let specializations of specialization"
+                [value]="specializations.value"
+              >
+                {{ specializations.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-radio-group aria-label="Gender" formControlName="gender">
+            <mat-radio-button color="primary" value="M">Male</mat-radio-button>
+            <mat-radio-button color="primary" value="F"
+              >Female</mat-radio-button
+            >
+            <mat-radio-button color="primary" value="O">Other</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>Doctor Id</mat-label>
+            <input
+              matInput
+              placeholder="Enter your doctor Id"
+              formControlName="doctorId"
+              
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>Experiance</mat-label>
+            <input
+              matInput
+              placeholder="Enter your experiance"
+              formControlName="experience"
+              type="text"  (keypress)="onlyNumber($event)"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>password</mat-label>
+            <input
+              matInput
+              placeholder="Enter your Password"
+              formControlName="password"
+              [type]="passhide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="passhide = !passhide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="passhide"
+            >
+              <mat-icon>{{
+                passhide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <!-- <mat-error
+                *ngIf="
+                  allControls?.password?.errors?.minlength && signupSubmitted
+                "
+                >Password should contain atleast 8 characters
+              </mat-error> -->
+          <mat-form-field appearance="outline" class="halfinput">
+            <mat-label>Confirm password</mat-label>
+            <input
+              matInput
+              placeholder="Re-enter password"
+              formControlName="ConfirmPassword"
+              [type]="passhide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="passhide = !passhide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="passhide"
+            >
+              <mat-icon>{{
+                passhide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="col-12 d-flex justify-content-end">
+            <mat-error class="conerr col-6" *ngIf="allControls.ConfirmPassword.errors?.mustmatched"> Passwords mismatch </mat-error>
+          </div>
+          <div style="text-align: center">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <div class="regbtn">
+      <button mat-raised-button color="accent" type="submit">login</button>
+    </div>
+  </div>
+</div>
