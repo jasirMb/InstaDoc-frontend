@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,11 @@ getDoctors(){
  
   return this.http.get(this.apiUrl + "/admin/doctors")
 }
-approveDoctor(id : string) {
-  console.log("onn serviceeee");
-  
-  return this.http.patch(this.apiUrl + "/admin/doctors/status", id)
+approveDoctor(id : string,approved:boolean,rejected : boolean) {  
+  return this.http.put(this.apiUrl + "/admin/doctors/status",{id,approved,rejected})
+}
+acccessChanger(id : string){
+  return this.http.patch(this.apiUrl + "/admin/doctors/access",{id})
 }
 
 }

@@ -21,22 +21,39 @@
           </button>
         </div>
         <div class="buttons d-flex justify-content-between mt-5">
-          <button type="button" class="btn btn-outline-success" (click)="approve(doctor.id)">Approve</button>
-          <button type="button" class="btn btn-outline-danger">Reject</button>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            (click)="approve(doctor._id)"
+          >
+            Approve
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            (click)="reject(doctor._id)"
+          >
+            Reject
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <div class="tablefull ">
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input
-        matInput
-        (keyup)="applyFilter($event)"
-        placeholder="Ex. Mia"
-        #input
-      />
-    </mat-form-field>
+  <div class="tablefull">
+    <div class="headertable d-flex">
+      <div>
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. Mia"
+            #input
+          />
+        </mat-form-field>
+      </div>
+     
+    </div>
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
@@ -73,27 +90,27 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>DoctorId</th>
           <td mat-cell *matCellDef="let row">{{ row.doctorId }}</td>
         </ng-container>
-        <ng-container matColumnDef="action" >
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
-            
-            <td mat-cell *matCellDef="let row" >
-                <ng-container *ngIf="row.access; then trueButton else falseButton"></ng-container>
-                <ng-template #trueButton>
-                    
-                    <button mat-fab extended color="warn" >
-                   <mat-icon>block</mat-icon>
-                   Block
-                 </button>
-                </ng-template>
-                <ng-template #falseButton>
-                    
-                    <button mat-fab extended color="warn" >
-                   <mat-icon>check_circle_outline</mat-icon>
-                   unblock
-                 </button>
-                </ng-template>
-            </td>
-          </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+
+          <td mat-cell *matCellDef="let row">
+            <ng-container
+              *ngIf="row.access; then trueButton; else falseButton"
+            ></ng-container>
+            <ng-template #trueButton>
+              <button mat-fab extended color="warn" (click)="accessChange(row._id)">
+                <mat-icon>block</mat-icon>
+                Block
+              </button>
+            </ng-template>
+            <ng-template #falseButton>
+              <button mat-fab extended  (click)="accessChange(row._id)" class="custom-color-button">
+                <mat-icon>check_circle_outline</mat-icon>
+                unblock
+              </button>
+            </ng-template>
+          </td>
+        </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
