@@ -53,6 +53,7 @@ import { AdminNavComponent } from './components/admin/admin-nav/admin-nav.compon
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { DoctorManageComponent } from './components/admin/doctor-manage/doctor-manage.component';
 import { DetailsComponent } from './components/admin/doctor-manage/detailsPop-up/details/details.component';
+import { OtpPopupComponent } from './components/user/user-signup/otp/otp-popup/otp-popup.component';
 
 
 
@@ -77,6 +78,7 @@ import { DetailsComponent } from './components/admin/doctor-manage/detailsPop-up
     AdminLoginComponent,
     DoctorManageComponent,
     DetailsComponent,
+    OtpPopupComponent,
     
    
     

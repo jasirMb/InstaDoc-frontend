@@ -3,6 +3,12 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { OtpPopupComponent } from './otp/otp-popup/otp-popup.component';
 
 @Component({
   selector: 'app-user-signup',
@@ -19,7 +25,7 @@ export class UserSignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService,
+    private userService: UserService,private dialogRef: MatDialog,
     private toastr: ToastrService
   ) {}
   ngOnInit(): void {
@@ -76,21 +82,29 @@ export class UserSignupComponent implements OnInit {
       console.log(formData.email + 'heyyyy');
 
       this.userLoggedIn = this.signupForm.controls.userName.value;
-      this.userService.signUp(data).subscribe(
-        (response: object) => {
-          this.toastr.success('Account created succesfully..',)
-          localStorage.setItem('userToken', "" + response)
-          this.router.navigate(['']);
-        },
-        (err) => {
-          console.log(err);
-          
-          this.errorMessage = err.error;
-          this.toastr.error(this.errorMessage)
-        }
-      );
+      this.userService.signUp(data).subscribe({
+        next: (response: any) => {
+            this.dialogRef.open(OtpPopupComponent, {
+              data: "hai",
+            });
+            
+            localStorage.setItem('userToken', "" + response.token)
+            // this.router.navigate(['']);
+          },
+        error: (err) => {
+            console.log(err);
+            
+            this.errorMessage = err.error;
+            this.toastr.error(this.errorMessage)
+          }
+        });
     } else {
       return;
     }
+  }
+  test(){
+    this.dialogRef.open(OtpPopupComponent, {
+      data: "hai",
+    });
   }
 }

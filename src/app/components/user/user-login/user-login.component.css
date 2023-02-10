@@ -3,7 +3,7 @@ mat-tab-group {
 }
 .full_login{
   height: auto;
-  background-image: url("/assets/images/AdobeStock_215322148.jpg");
+  /* background-image: url("/assets/images/AdobeStock_215322148.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   /* overflow: -moz-hidden-unscrollable; */

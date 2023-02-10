@@ -1,0 +1,31 @@
+<div class="fulldiv">
+  <h2 mat-dialog-title class="align-items-center">
+    Please verify your Email id
+  </h2>
+  <div mat-dialog-content>
+    <div class="d-flex justify-content-center">
+      <div class="card py-5 px-3">
+        <h4 class="m-0">E-mail verification</h4>
+        <span class="mobile-text"
+          >Enter the code we just send on your Email
+          <b class="text-danger">email</b></span
+        >
+        <mat-error *ngIf="errormsg">fill all fields!</mat-error>
+        <form
+                      [formGroup]="loginForm"
+                      (ngSubmit)="onLoginSubmit(loginForm)"
+                    >
+        <div class="d-flex flex-row mt-5">
+          <input type="text" class="form-control" autofocus="" formControlName="otp1"/>
+          <input type="text" class="form-control" formControlName="otp2"/>
+          <input type="text" class="form-control" formControlName="otp3"/>
+          <input type="text" class="form-control" formControlName="otp4"/>
+        </div>
+        <div class="text-center mt-5">
+          <input class="btn btn-primary" type="submit" value="Submit" (click)="onSubmit()" />
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

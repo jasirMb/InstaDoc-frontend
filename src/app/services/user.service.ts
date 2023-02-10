@@ -16,4 +16,13 @@ export class UserService {
   isLoggedIn() {
     return !!localStorage.getItem('userToken')
   }
+  otpVerify( data: object,token : String){
+    console.log(data+"its from service");
+   let  values = {
+      data,
+      token
+    }
+    return this.http.post(this.apiUrl + "/otpVerify", values)
+  
+  }
 }
