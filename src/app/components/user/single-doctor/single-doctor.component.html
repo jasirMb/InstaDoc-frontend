@@ -1,0 +1,46 @@
+<div>
+  <app-user-nav></app-user-nav>
+</div>
+<div class="container">
+  <div class="docdetails">
+    <h1 class="heading">DOCTOR DETAILS</h1>
+  </div>
+  <div class="main">
+    <div class="docimage">
+      <img
+        src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?"
+        width="300px"
+        alt=""
+      />
+      <div class="details">
+        <div>
+          <div class="docmail">
+            <span class="detailed"> Name : </span>
+            <span class="detailvalue">{{ doctor.doctorName }}</span>
+          </div>
+          <div class="docmail">
+            <span class="detailed"> Email : </span>
+            <span class="detailvalue">{{ doctor.email }}</span>
+          </div>
+          <div class="docmail">
+            <span class="detailed"> City : </span>
+            <span class="detailvalue">{{ doctor.city }}</span>
+          </div>
+          <div class="docmail">
+            <span class="detailed"> Specialization : </span>
+            <span class="detailvalue">{{ doctor.specialization }}</span>
+          </div>
+          <div class="docmail">
+            <span class="detailed"> Experience : </span
+            ><span class="detailvalue"
+              >{{ doctor.experience }} years of experience</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slotd">
+    <app-slot-book [data]="doctorId"></app-slot-book>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="total">
+  <div class="calender">
+    <mat-form-field>
+      <mat-label>Select a date</mat-label>
+      <input matInput [min]="minDate" [matDatepicker]="dp3" disabled (dateChange)="onDateSelect($event)" />
+      <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker  #dp3 disabled="false" ></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div *ngIf="dateError" class="d-flex justify-content-center mt-3 mb-3">
+   <mat-error>please select a date!</mat-error>
+  </div>
+  <div class="containero" *ngIf="showSlot">
+    <div class="row ">
+      <div class="slots col-3 d-flex justify-content-around" *ngFor="let slot of slots" >
+        <button class="custom-color-button" mat-raised-button color="primary" mat-button style="font-size: 24px; padding: 30px;" (click)="slotTime(slot)" *ngIf="!checkingslot(slot)">{{ slot }}</button>
+      </div>
+    </div>
+  </div>
+  
+</div>

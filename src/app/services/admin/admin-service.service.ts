@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminServiceService {
+  role : any =""
   private apiUrl = 'http://localhost:3000'
   constructor(private http : HttpClient) {} 
  
@@ -14,7 +15,14 @@ login(data : object) {
   return this.http.post(this.apiUrl + "/admin/login", data)
 }
 isLoggedIn() {
-  return !!localStorage.getItem('adminToken')
+  this.role = localStorage.getItem('role')
+  if(this.role === "admin"){
+    console.log("its admin");
+    
+    return true
+  }else{
+    return false
+  }
 }
 getDoctors(){
  
@@ -25,6 +33,13 @@ approveDoctor(id : string,approved:boolean,rejected : boolean) {
 }
 acccessChanger(id : string){
   return this.http.patch(this.apiUrl + "/admin/doctors/access",{id})
+}
+allUsers(){
+ 
+  return this.http.get(this.apiUrl + "/admin/users")
+}
+userAcccessChanger (id : string){
+  return this.http.patch(this.apiUrl + "/admin/users/access",{id})
 }
 
 }

@@ -1,0 +1,10 @@
+.fullcontainer{
+    width: 70%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding-top: 50px;
+
+}
+.custom-color-button{
+    background-color: rgb(16, 94, 6);
+}

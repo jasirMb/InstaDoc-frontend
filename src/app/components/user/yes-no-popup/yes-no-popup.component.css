@@ -1,0 +1,17 @@
+.select {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.title{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 0.829);
+}
+h3 {
+    font-weight: 700; 
+}
+

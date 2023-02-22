@@ -36,3 +36,7 @@
   .cursor {
     cursor: pointer;
   }
+  h6 {
+    color: blue;
+    text-decoration: underline;
+  }

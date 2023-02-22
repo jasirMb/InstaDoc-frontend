@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+import { Router,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-doctor-manage',
   templateUrl: './doctor-manage.component.html',
@@ -20,6 +21,7 @@ export class DoctorManageComponent implements OnInit {
   allDoctors: any = [];
   approved :boolean = true
   rejected :boolean = true
+  currentPath :string = ""
   displayedColumns: string[] = [
     'id',
     'doctorName',
@@ -35,10 +37,14 @@ export class DoctorManageComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(
     private adminService: AdminServiceService,
-    private dialogRef: MatDialog,private toastr: ToastrService
+    private dialogRef: MatDialog,private toastr: ToastrService,
+    private activatedRoute: ActivatedRoute, private router: Router
   ) {}
 
    ngOnInit() {
+    this.currentPath = this.activatedRoute.snapshot.url.map(segment => segment.path).join(' -> ');
+    console.log(this.currentPath);
+    
     this.adminService.getDoctors().subscribe(
       (response: any) => {
         console.log(response);

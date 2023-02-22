@@ -32,7 +32,7 @@ export class OtpPopupComponent {
       otp3: ['', [Validators.required]],
       otp4: ['', [Validators.required]],
     });
-    this.token = localStorage.getItem('userToken');
+    
   }
   get allControls(): any {
     return this.loginForm.controls;
@@ -53,6 +53,7 @@ export class OtpPopupComponent {
         otp4: formData.otp4,
       };
       console.log(formData.otp3 + 'heyyyy');
+      this.token = localStorage.getItem('token');
       this.userService.otpVerify(data, this.token).subscribe(
         (response: object) => {
           this.toastr.success('otp verified succesfully');
@@ -71,5 +72,15 @@ export class OtpPopupComponent {
     } else {
       this.errormsg = true;
     }
+  }
+  resendOtp (){
+    this.token = localStorage.getItem('token');
+    console.log(this.token);
+    
+    this.userService.resendOtp(this.token).subscribe((response) =>{
+      if(response){
+        this.toastr.success("otp is resended")
+      }
+    })
   }
 }

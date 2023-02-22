@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(29, 29, 29);
     border: 10px;
     position: fixed;
     z-index: 10;
@@ -24,7 +24,7 @@
   }
   .mobilenav {
     float: right;
-    background-color: rgba(24, 223, 190, 0.788);
+    background-color: rgba(0, 0, 0, 0.788);
     width: 250px;
     text-align: center;
     z-index: 3;

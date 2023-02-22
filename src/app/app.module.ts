@@ -3,7 +3,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 //...................... compoonents......................................//
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/user/home/home.component';
@@ -28,7 +28,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -42,6 +44,8 @@ import { ServicecardComponent } from './components/user/home/servicecard/service
 //........................services.............................................//
 import { UserService } from './services/user.service';
 import { AdminServiceService } from './services/admin/admin-service.service';
+import { TokenIntercepterService } from './services/shared/token-interceptor.service';
+import { AuthCheckService } from './services/shared/auth-check.service';
 
 import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
 import { DoctorNavComponent } from './components/doctor/doctor-nav/doctor-nav.component';
@@ -54,6 +58,13 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { DoctorManageComponent } from './components/admin/doctor-manage/doctor-manage.component';
 import { DetailsComponent } from './components/admin/doctor-manage/detailsPop-up/details/details.component';
 import { OtpPopupComponent } from './components/user/user-signup/otp/otp-popup/otp-popup.component';
+import { UserManageComponent } from './components/admin/user-manage/user-manage.component';
+import { DoctorListComponent } from './components/user/doctor-list/doctor-list.component';
+import { SingleDoctorComponent } from './components/user/single-doctor/single-doctor.component';
+import { SlotBookComponent } from './components/user/slot-book/slot-book.component';
+import { CheckoutComponent } from './components/user/checkout/checkout.component';
+import { YesNoPopupComponent } from './components/user/yes-no-popup/yes-no-popup.component';
+import { MyBookingComponent } from './components/user/my-booking/my-booking.component';
 
 
 
@@ -79,6 +90,15 @@ import { OtpPopupComponent } from './components/user/user-signup/otp/otp-popup/o
     DoctorManageComponent,
     DetailsComponent,
     OtpPopupComponent,
+    UserManageComponent,
+    DoctorListComponent,
+    SingleDoctorComponent,
+    SlotBookComponent,
+    CheckoutComponent,
+    YesNoPopupComponent,
+    MyBookingComponent,
+    
+   
     
    
     
@@ -104,6 +124,8 @@ import { OtpPopupComponent } from './components/user/user-signup/otp/otp-popup/o
     MatMenuModule,
     NgxUiLoaderModule,
     MatTableModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatPaginatorModule,
     MatSortModule,
     NgxUiLoaderHttpModule.forRoot({
@@ -117,7 +139,11 @@ import { OtpPopupComponent } from './components/user/user-signup/otp/otp-popup/o
 
   ],
   
-  providers: [UserService,AdminServiceService,doctorService],
+  providers: [UserService,AdminServiceService,doctorService,AuthCheckService,{
+    provide : HTTP_INTERCEPTORS,
+    useClass : TokenIntercepterService,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,44 @@
+.docdetails{
+    margin-top: 50px;
+}
+.heading{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+    padding: 20px;
+    border:1px solid black ;
+}
+.docimage {
+    background-color:slategray;
+    display: flex;
+    padding-left: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+img {
+    border-style: ridge;
+    width: 20%;
+    
+}
+.details{
+    margin-left: 50px;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+.detailed{
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+.docmail {
+    margin-top: 20px;
+    
+}
+.docmail .detailvalue{
+    font-weight: 500;
+    font-style: italic;
+}
+.main {
+    margin-bottom: 40px;
+}

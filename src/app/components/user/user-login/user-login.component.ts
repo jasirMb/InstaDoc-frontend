@@ -46,7 +46,8 @@ export class UserLoginComponent implements OnInit {
       this.userService.login(data).subscribe(
         (response: any) => {
           this.toastr.success('login success');
-          localStorage.setItem('userToken', '' + response);
+          localStorage.setItem('token', '' + response.token);
+          localStorage.setItem('role', 'user');
           this.router.navigate(['']);
         },
         (err) => {

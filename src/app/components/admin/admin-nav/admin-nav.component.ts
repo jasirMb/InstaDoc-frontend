@@ -19,7 +19,8 @@ export class AdminNavComponent {
     return this.adminService.isLoggedIn()
   }
   logout() {
-    localStorage.removeItem('adminToken')
-    this.router.navigate(['/admin'])
+    localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    this.router.navigate(['/admin/login'])
   }
 }

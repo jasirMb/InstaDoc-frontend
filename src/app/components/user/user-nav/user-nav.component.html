@@ -11,9 +11,9 @@
       <div class="linkandbtn">
         <div class="navlinks">
           <h3 [routerLink]="['']">Home</h3>
-          <h3>Book doctors</h3>
+          <h3 [routerLink]="['/doctors']" >Book doctors</h3>
           <h3>Online consult</h3>
-          <h3>Subscriptions</h3>
+          <!-- <h3>Subscriptions</h3> -->
           <h3>Contact Us</h3>
         </div>
 
@@ -38,6 +38,100 @@
         <button *ngIf="isLoggIn()" mat-raised-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" 
         color="primary" >
           <!-- <mat-icon>more_vert</mat-icon> -->
+          PROFILE
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>today</mat-icon>
+            <span [routerLink]="['/my_appointments']">My appointments</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>question_answer</mat-icon>
+            <span>Online consultations</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>folder_shared</mat-icon>
+            <span>Records</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>monetization_on</mat-icon>
+            <span>My subscriptions</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>thumbs_up_down</mat-icon>
+            <span>My reviews</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+          
+        </mat-menu>
+      </div>
+      <div>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+          (click)="mobilenav()"
+        >
+          <mat-icon class="menuIcon">menu</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="mobilenav"*ngIf="isMenuCollapsed">
+  <h3 [routerLink]="['']">Home</h3>
+  <hr>
+  <h3>Book doctors</h3>
+  <hr>
+  <h3>Online consult</h3>
+  <hr>
+  <h3>Subscriptions</h3>
+  <hr>
+  <h3>Contact Us</h3>
+  <hr>
+</div>
+
+
+
+<!-- ................................... -->
+<!-- <mat-toolbar>
+  <mat-toolbar-row class="navbar">
+    <div>
+      <span
+        ><img src="/assets/images/attachment_132385842 (1).png" alt=""
+      /></span>
+    </div>
+   
+    <div class="extra">
+      <div class="linkandbtn">
+        <div class="navlinks">
+          <h3 [routerLink]="['']">Home</h3>
+          <h3 [routerLink]="['/doctors']" >Book doctors</h3>
+          <h3>Online consult</h3>
+          <h3>Subscriptions</h3>
+          <h3>Contact Us</h3>
+        </div>
+
+        <button
+        *ngIf="!isLoggIn()"
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/login']"
+          class="loginButton"
+        >
+          LOGIN
+        </button>
+       
+        <button *ngIf="isLoggIn()" mat-raised-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" 
+        color="primary" >
+        
           PROFILE
         </button>
         <mat-menu #menu="matMenu">
@@ -96,4 +190,5 @@
   <hr>
   <h3>Contact Us</h3>
   <hr>
-</div>
+</div> -->
+

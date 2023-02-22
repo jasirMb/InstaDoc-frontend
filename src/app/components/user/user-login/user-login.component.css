@@ -2,8 +2,8 @@ mat-tab-group {
   margin-bottom: 48px;
 }
 .full_login{
-  height: auto;
-  /* background-image: url("/assets/images/AdobeStock_215322148.jpg"); */
+  height: 100%;
+  background-image: url("/assets/images/AdobeStock_215322148.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   /* overflow: -moz-hidden-unscrollable; */
@@ -33,14 +33,15 @@ mat-tab-label {
   border-radius:.7rem ;
   background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
   border: 1px solid rgb(0, 0, 0);
-  height: 100%;
-  padding-left: 5px;
+  height: auto;
+  
   overflow: hidden;
  
     
 }
 .login-card{
   /* background-color: #685f5f; */
+  margin-top: 2rem;
   background-image: linear-gradient(to right top, #00e9ff, #00cef9, #00b3f0, #0097e1, #007acd, #417ac9, #5b7ac5, #6d7ac0, #9599cf, #bab9df, #dddbef, #ffffff);
     border-radius: .7rem;
     width: 100%;

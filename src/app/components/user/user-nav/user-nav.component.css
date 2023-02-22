@@ -1,5 +1,5 @@
 .navbar {
-  background-color: rgb(253, 253, 253);
+  background-color: rgba(253, 253, 253, 0);
   border: 10px;
   position: fixed;
   z-index: 10;
@@ -77,3 +77,76 @@ mat-toolbar h3 {
     visibility: visible;
   }
 }
+/* ................................ */
+/* .navbar {
+  background-color: rgba(253, 253, 253, 0);
+  border: 10px;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+
+mat-toolbar h3 {
+  font-weight: 500;
+  display: inline-block;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+.mobilenav {
+  float: right;
+  background-color: rgba(24, 223, 190, 0.788);
+  width: 250px;
+  text-align: center;
+  z-index: 3;
+  height: 100%;
+  position: fixed;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+.mobilenav :hover{
+  color: rgb(0, 0, 0);
+}
+.navlinks {
+  visibility: visible;
+}
+.loginButton {
+  visibility: visible;
+}
+.menuIcon {
+  visibility: hidden;
+  font-size: xx-large;
+}
+.extra{
+  display: flex;
+}
+.linkandbtn{
+  display: flex;
+}
+
+@media (max-width: 906px) {
+  
+  .menuIcon {
+    visibility: visible;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  .linkandbtn{
+    display: none;
+  }
+}
+
+@media (max-width: 906px) {
+  .mobile-nave {
+    visibility: visible;
+  }
+} */

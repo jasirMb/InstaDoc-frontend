@@ -67,6 +67,7 @@ export class DoctorSignupComponent implements OnInit {
       const data = {
         doctorName: formData.name,
         email: formData.email,
+        doctorId : formData.doctorId,
         specialization: formData.specializations,
         gender : formData.gender,
         city : formData.city,
@@ -75,9 +76,10 @@ export class DoctorSignupComponent implements OnInit {
       };
       console.log(data);
       this.doctorService.signUp(data).subscribe(
-        (response: object) => {
+        (response: any) => {
           this.toastr.success('Account created succesfully..',)
-          localStorage.setItem('userToken', "" + response)
+          localStorage.setItem('token', "" + response.token)
+          localStorage.setItem('role', 'doctor');
           this.router.navigate(['/doctor']);
         },
         (err) => {

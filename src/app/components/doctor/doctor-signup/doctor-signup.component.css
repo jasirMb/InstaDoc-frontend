@@ -1,21 +1,22 @@
 .containe {
-    
-    margin-top: 0px;
-    
-    width: 100%;
-    height: 100%;
-    /* background-image: url("/assets/images/AdobeStock_215322148.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-  }
-  .example-card {
-    max-width: 50%;
-    margin: auto;
-    border-radius: 2rem;
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-    /* background-image: linear-gradient(
+ display: flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 100%;
+  align-items: center; /* center the child div vertically */
+  justify-content: center; /* center the child div horizontally */
+  background-image: url("/assets/images/AdobeStock_215322148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.example-card {
+  max-width: 50%;
+  margin: auto;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  /* background-image: linear-gradient(
       to right top,
       #dfeaeb,
       #cdd9db,
@@ -31,56 +32,68 @@
       #ffffff
     );
      */
-     background-color: rgb(132,207,216);
-  }
-  
-  .example-header-image {
-    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-    background-size: cover;
-  }
-  .logincard {
-    /* margin-top: 100px; */
-    align-items: center;
-    background-image: url("/assets/images/AdobeStock_215322148.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-   
-  }
-  mat-card-title {
-    justify-content: center;
-    margin: 3rem;
-    color: rgb(0, 0, 0);
-    font-size: xx-large;
-    text-shadow: 10px 6px 4px rgba(46, 91, 173, 0.6);
-  }
-  .loginheader {
-    align-items: center;
-    display: flex;
-  }
-  mat-form-field {
-    width: 100%;
-    position: relative;
+  background-image: linear-gradient(
+    to right top,
+    #00e9ff,
+    #00cef9,
+    #00b3f0,
+    #0097e1,
+    #5cabe0,
+    #8caad4,
+    #5b7ac5,
+    #6d7ac0,
+    #9599cf,
+    #bab9df,
+    #dddbef,
+    #ffffff
+  );
+}
 
-  }
-  .regbtn { 
-    text-align: center;
-    margin-top: 50px;
-  }
-  .halfinput{
-    width: 48%;
-    margin-right: 10px;
-  }
-  mat-error {
-    /* position: absolute;
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+.logincard {
+  /* margin-top: 100px; */
+  align-items: center;
+  background-image: url("/assets/images/AdobeStock_215322148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+mat-card-title {
+  justify-content: center;
+  margin: 3rem;
+  color: rgb(0, 0, 0);
+  font-size: xx-large;
+  text-shadow: 10px 6px 4px rgba(46, 91, 173, 0.6);
+}
+.loginheader {
+  align-items: center;
+  display: flex;
+}
+mat-form-field {
+  width: 100%;
+  position: relative;
+}
+.regbtn {
+  text-align: center;
+  margin-top: 50px;
+}
+.halfinput {
+  width: 48%;
+  margin-right: 10px;
+}
+mat-error {
+  /* position: absolute;
     top: 100%;
     left: 0;
     width: 100%; */
-    text-align: start;
-  }
-  .err{
-    width: 100%;
-    border: 2px;
-    border-color: brown;
-    background-color: chartreuse;
-  }
-  
+  text-align: start;
+}
+.err {
+  width: 100%;
+  border: 2px;
+  border-color: brown;
+  background-color: chartreuse;
+}

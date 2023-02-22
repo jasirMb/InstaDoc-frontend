@@ -47,8 +47,9 @@ export class AdminLoginComponent {
       this.adminService.login(data).subscribe(
         (response: any) => {
           this.toastr.success('login success');
-          localStorage.setItem('adminToken', '' + response);
-          this.router.navigate(['/admin/home']);
+          localStorage.setItem('token', '' + response.token);
+          localStorage.setItem('role', 'admin' );
+          this.router.navigate(['admin']);
         },
         (err) => {
           this.errorMessage = err.error;

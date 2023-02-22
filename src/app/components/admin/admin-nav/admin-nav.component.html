@@ -9,9 +9,9 @@
     <div class="extra">
       <div class="linkandbtn">
         <div class="navlinks">
-          <h3 [routerLink]="['/admin/home']">Home</h3>
+          <h3 [routerLink]="['/admin']">Home</h3>
           <h3 [routerLink]="['/admin/doctors']">Doctors</h3>
-          <h3>Users</h3>
+          <h3 [routerLink]="['/admin/users']">Users</h3>
           <h3>Booking</h3>
           <h3>Feedbacks</h3>
         </div>
@@ -20,7 +20,7 @@
           *ngIf="!isLoggIn()"
           mat-raised-button
           color="primary"
-          [routerLink]="['/doctor/login']"
+          [routerLink]="['/admin/login']"
           class="loginButton"
         >
           LOGIN

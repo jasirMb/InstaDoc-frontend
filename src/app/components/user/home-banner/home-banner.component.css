@@ -12,13 +12,13 @@ img {
   margin-right: auto;
   width: 100%;
   height: 70vh;
-  border-radius: 1rem;
+  border-radius: 0rem;
 }
 .mainHeading {
   position: absolute;
   color: rgb(255, 255, 255);
   bottom: 60%;
-  left: 26%;
+  left: 35%;
 }
 .doctor {
   font-weight: 800;
@@ -31,7 +31,7 @@ img {
   position: absolute;
   color: rgb(255, 255, 255);
   bottom: 35%;
-  left: 30%;
+  left: 40%;
 }
 .doc_content {
   font-weight: 400;
@@ -41,5 +41,74 @@ img {
 .banner_button {
   position: absolute;
   bottom: 15%;
-  left: 34%;
+  left: 27%;
+}
+.searchdiv{
+  display: inline;
+}
+.location{
+  margin-right: 0px;
+}
+
+
+.search{
+  margin-bottom: auto;
+  margin-top: 200px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.411);
+  padding: 10px;
+}
+
+.search-input{
+
+  color: rgb(255, 255, 255);
+  border:0;
+  outline: 0;
+  background: none;
+  width: 0;
+  margin-top:5px;
+  caret-color:transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+
+}
+
+.search .search-input{
+  padding: 0 10px;
+  width: 550px;
+  caret-color: #536bf6;
+  font-size: 21px;
+  font-weight: 300;
+  color: black;
+  transition: width 0.4s linear;
+}
+
+.search:hover>.search-icon{
+  background:#1A237E;
+  color:#fff;
+}
+.search-icon{
+
+      height: 50px;
+  width: 50px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #536bf6;
+
+}
+a:link{
+  text-decoration: none;
+}
+.doctors h1{
+position: absolute;
+  bottom: 80%;
+  left: 5%;
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", Times, serif;
+}
+a {
+  color: #fff;
 }
