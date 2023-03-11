@@ -23,7 +23,11 @@ export class DoctorNavComponent {
     return this.doctorService.isLoggedIn()
   }
   logout() {
-    localStorage.removeItem('adminToken')
-    this.router.navigate(['/admin'])
+   
+    this.doctorService.logout().subscribe((response) =>{
+      console.log(response);
+      localStorage.removeItem('doctorToken')
+      this.router.navigate(['/doctor/login'])
+    })
   }
 }

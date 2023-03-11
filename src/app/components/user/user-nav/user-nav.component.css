@@ -1,5 +1,5 @@
 .navbar {
-  background-color: rgba(253, 253, 253, 0);
+  background-color: rgb(253, 253, 253);
   border: 10px;
   position: fixed;
   z-index: 10;
@@ -18,7 +18,7 @@ mat-toolbar h3 {
 }
 .mobilenav {
   float: right;
-  background-color: rgba(24, 223, 190, 0.788);
+  background-color: rgba(255, 255, 255, 0.788);
   width: 250px;
   text-align: center;
   z-index: 3;
@@ -27,14 +27,14 @@ mat-toolbar h3 {
   font-weight: 500;
   cursor: pointer;
   border-radius: 10px;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   transition-property: all;
   transition-duration: 2s;
   transition-timing-function: linear;
   transition-delay: 1s;
 }
 .mobilenav :hover{
-  color: rgb(0, 0, 0);
+  color: rgb(253, 253, 253);
 }
 .navlinks {
   visibility: visible;
@@ -54,12 +54,7 @@ mat-toolbar h3 {
 }
 
 @media (max-width: 906px) {
-  .navlinks {
-    /* visibility: hidden; */
-  }
-  .loginButton {
-    /* visibility: hidden; */
-  }
+  
   .menuIcon {
     visibility: visible;
   }

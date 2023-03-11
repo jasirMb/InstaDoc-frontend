@@ -78,8 +78,8 @@ export class DoctorSignupComponent implements OnInit {
       this.doctorService.signUp(data).subscribe(
         (response: any) => {
           this.toastr.success('Account created succesfully..',)
-          localStorage.setItem('token', "" + response.token)
-          localStorage.setItem('role', 'doctor');
+          localStorage.setItem('doctorToken', "" + response.token)
+          // localStorage.setItem('role', 'doctor');
           this.router.navigate(['/doctor']);
         },
         (err) => {

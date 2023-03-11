@@ -47,8 +47,8 @@ export class AdminLoginComponent {
       this.adminService.login(data).subscribe(
         (response: any) => {
           this.toastr.success('login success');
-          localStorage.setItem('token', '' + response.token);
-          localStorage.setItem('role', 'admin' );
+          localStorage.setItem('adminToken', '' + response.token);
+          // localStorage.setItem('role', 'admin' );
           this.router.navigate(['admin']);
         },
         (err) => {

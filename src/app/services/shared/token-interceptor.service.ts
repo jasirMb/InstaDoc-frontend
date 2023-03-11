@@ -5,11 +5,14 @@ import { AuthCheckService } from './auth-check.service';
   providedIn: 'root'
 })
 export class TokenIntercepterService implements HttpInterceptor {
-
+  
   constructor(private authCheck: AuthCheckService) { }
 
   intercept(req: any, next: any) {
-    let authService = this.authCheck.getToken()
+    const role = req.url.split('/')[3]
+    console.log(role);
+    
+    let authService = this.authCheck.getToken(role)
 
     let tokenizedReq = req.clone({
       setHeaders: {

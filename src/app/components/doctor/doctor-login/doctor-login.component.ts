@@ -47,9 +47,11 @@ export class DoctorLoginComponent implements OnInit {
       
       this.doctorService.login(data).subscribe(
         (response: any) => {
+          console.log("its doccccccccccccc");
+          
           this.toastr.success('login success');
-          localStorage.setItem('token', '' + response.token);
-          localStorage.setItem('role', 'doctor');
+          localStorage.setItem('doctorToken', '' + response.token);
+          // localStorage.setItem('role', 'doctor');
           this.router.navigate(['/doctor']);
         },
         (err) => {

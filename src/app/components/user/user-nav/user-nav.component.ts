@@ -19,8 +19,7 @@ export class UserNavComponent {
     return this.UserService.isLoggedIn()
   }
   logout() {
-    localStorage.removeItem('token')
-    localStorage.removeItem('role')
+    localStorage.removeItem('userToken')
     this.router.navigate(['/login'])
   }
 }

@@ -1,0 +1,68 @@
+<div>
+  <app-user-nav></app-user-nav>
+</div>
+<div class="total">
+  <div class="imageUpload d-flex justify-content-center mt-5">
+    <form enctype="multipart/form-data">
+      <div class="input-group">
+        <input
+          class="form-control form-control-sm"
+          id="formFileSm"
+          type="file"
+          name="file"
+          accept="image/*"
+          maxlength="5000000"
+          (change)="onFileSelected($event)"
+        />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="onSubmit()"
+          class=""
+        >
+          Upload
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="folders">
+    <div *ngIf="imagePath; else otherDiv">
+      <h1>Your Images</h1>
+    </div>
+    <ng-template #otherDiv>
+      <div>
+        <h1>No files found :(</h1>
+      </div>
+    </ng-template>
+
+    <div class="row folder mt-5">
+      <div class="col-lg-4 col-md-12 images" *ngFor="let paths of imagePath">
+        <img
+          [src]="'http://localhost:3000/' + paths"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="user records"
+          (click)="showImage(paths)"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal" [ngClass]="{ show: isModalVisible }">
+    <span class="close" (click)="hideImage()">&times;</span>
+    <img
+      class="modal-content"
+      [src]="'http://localhost:3000/' + selectedImage"
+      alt="h"
+    />
+    <div id="caption" class="d-flex justify-content-center mt-2">
+      <!-- <button class="mr-3" mat-raised-button color="primary">download</button> -->
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="removeRecord(selectedImage)"
+      >
+        delete
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<app-doctor-nav> </app-doctor-nav>
+<div class="fullcontainer mb-5">
+  <div class="row p-0 d-flex justify-content-around fullcards">
+    <h1 class="cardheader">Your Patients</h1>
+    <div
+      class="card text-white bg-dark mb-3 text-center col-lg-4 col-md-6 col-sm-12"
+      style="max-width: 18rem"
+      *ngFor="let patient of allPatients"
+    >
+      <div class="card-header">Name: {{ patient._id.username }}</div>
+      <div class="card-body">
+        <h5 class="card-title">email: {{ patient._id.email }}</h5>
+            <div>
+            <form>
+                <h4>Dates</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>visited dates</mat-label>
+                  <mat-select name="food">
+                    <mat-option *ngFor="let date of patient.dates" >
+                        {{date}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </form>
+        </div>
+        <!-- <div class="buttons d-flex justify-content-between mt-5">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            
+          >
+            Approve
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            (click)="reject(doctor._id)"
+          >
+            Reject
+          </button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthCheckService } from '../services/shared/auth-check.service';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DoctorAuthGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  constructor(private authService : AuthCheckService, private router : Router){}
+  canActivate() :boolean {
+    if(this.authService.isDoctorLoggedIn()){
+      return true;
+    }else {
+      this.router.navigate(['/doctor/login'])
+      return false
+    }
   }
-  
 }

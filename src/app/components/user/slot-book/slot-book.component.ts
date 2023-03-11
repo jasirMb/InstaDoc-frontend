@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   MatDialog,
   MatDialogConfig,
-  MatDialogRef,
+  MatDialogRef
 } from '@angular/material/dialog';
 import { YesNoPopupComponent } from '../yes-no-popup/yes-no-popup.component';
 import { UserService } from 'src/app/services/user.service';
@@ -30,8 +31,9 @@ export class SlotBookComponent {
     '19:00',
     '20:00',
   ];
-  selectedDate: string;
+  selectedDate: string|null;
   minDate: Date;
+  maxDate : Date;
   selectedTime: string;
   paymentHandler: any = null;
   token: any;
@@ -40,28 +42,33 @@ export class SlotBookComponent {
   details: object;
   dateError = false;
   bookedSlots: any;
+  busySlots : any;
   showSlot : boolean = false
   constructor(
     private dialogRef: MatDialog,
     public userService: UserService,
     private toastr: ToastrService,
-    public router: Router
+    public router: Router,
+    private datePipe :DatePipe
   ) {
     this.minDate = new Date(); // Set minimum date to today
+    this.maxDate = new Date();
+    this.maxDate.setDate(this.minDate.getDate() + 7);
   }
   ngOnInit() {
     this.invokeStripe();
   }
   onDateSelect($event: MatDatepickerInputEvent<any, any>) {
-    this.selectedDate = $event.value;
+    this.selectedDate =this.datePipe.transform($event.value,'yyyy-MM-ddTHH:mm:ss.SSSZ') 
     this.showSlot = true
     this.details = {
       doctorId: this.data,
       date: this.selectedDate,
     };
     console.log(this.details);
-    this.userService.getDocAppointments(this.details).subscribe((response) => {
-      this.bookedSlots = response;
+    this.userService.getDocAppointments(this.details).subscribe((response : any) => {
+      this.bookedSlots = response.times;
+      this.busySlots = response.unAvailable
       console.log(this.bookedSlots);
     });
     // const selectedDate = $event.target.value;
@@ -78,6 +85,7 @@ export class SlotBookComponent {
     if (this.selectedDate) {
       dialogConfig.width = '320px';
       dialogConfig.height = '150px';
+      dialogConfig.data = "book appointment on this time"
       const dialogRef = this.dialogRef.open(YesNoPopupComponent, dialogConfig);
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
@@ -121,7 +129,7 @@ export class SlotBookComponent {
             if (data) {
               this.toastr.success('appointment success');
 
-              this.router.navigate(['']);
+              this.router.navigate(['/my_appointments']);
             }
           });
         } else {
@@ -160,6 +168,17 @@ export class SlotBookComponent {
       console.log(item+"find");
       
       return true;
+    } else {
+      return false;
+    }
+  }
+  checkingAvailability(item: string) {
+    if (this.busySlots !== undefined) {
+      if (this.busySlots.includes(item)) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }

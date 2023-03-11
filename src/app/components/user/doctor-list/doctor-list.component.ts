@@ -1,5 +1,6 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
 import { MatPaginator } from '@angular/material/paginator';
 interface doctors {
   _id: string;
@@ -17,6 +18,7 @@ interface doctors {
 
 export class DoctorListComponent {
   @Input() pageSize: number = 10;
+  searchTerm : string = ''
   pageIndex: number = 0;
   doctors : Array<doctors> = []
   specializations : Array<String> = []
@@ -61,5 +63,10 @@ export class DoctorListComponent {
   //   this.userService.getSingleDoctor(id)
     
   // }
+  handleSearch(event : any) {
+    this.searchTerm = event.target.value
+    console.log(this.searchTerm);
+    
+  }
 }
 

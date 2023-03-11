@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminServiceService {
-  role : any =""
+  
   private apiUrl = 'http://localhost:3000'
   constructor(private http : HttpClient) {} 
  
@@ -15,8 +15,8 @@ login(data : object) {
   return this.http.post(this.apiUrl + "/admin/login", data)
 }
 isLoggedIn() {
-  this.role = localStorage.getItem('role')
-  if(this.role === "admin"){
+  let role : string | null = localStorage.getItem('adminToken')
+  if(role){
     console.log("its admin");
     
     return true

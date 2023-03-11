@@ -1,34 +1,50 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthCheckService {
-  role : any = ""
-  constructor() { }
+  admin: any = '';
+  user: any = '';
+  doctor: any = '';
+  constructor() {}
   isAdminLoggedIn() {
-    this.role = localStorage.getItem('role')
-    if(this.role === "admin"){
-      console.log("its admin");
-      
-      return true
-    }else{
-      return false
+    this.admin = localStorage.getItem('adminToken');
+    if (this.admin) {
+      console.log('its admin');
+
+      return true;
+    } else {
+      return false;
     }
-     
   }
   isUserLoggedIn() {
-    this.role = localStorage.getItem('role')
-    if(this.role === "user"){
-      console.log("its user");
-      
-      return true
-    }else{
-      return false
+    this.user = localStorage.getItem('userToken');
+    if (this.user) {
+      console.log('its user');
+
+      return true;
+    } else {
+      return false;
     }
-     
   }
-  getToken(){
-    return localStorage.getItem('token')
+  isDoctorLoggedIn() {
+    this.doctor = localStorage.getItem('doctorToken');
+    if (this.doctor) {
+      console.log('its doc');
+
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getToken(role: string) {
+    if (role === 'doctor') {
+      return localStorage.getItem('doctorToken');
+    } else if (role === 'admin') {
+      return localStorage.getItem('adminToken');
+    }else{
+      return localStorage.getItem('userToken')
+    }
   }
 }

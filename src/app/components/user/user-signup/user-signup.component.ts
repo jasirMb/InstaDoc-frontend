@@ -88,8 +88,8 @@ export class UserSignupComponent implements OnInit {
               data: "hai",
             });
             
-            localStorage.setItem('token', "" + response.token)
-            localStorage.setItem('role', 'user');
+            localStorage.setItem('userToken', "" + response.token)
+            // localStorage.setItem('role', 'user');
             // this.router.navigate(['']);
           },
         error: (err) => {

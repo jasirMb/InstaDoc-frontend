@@ -11,15 +11,14 @@
         <div class="linkandbtn">
           <div class="navlinks">
             <h3 [routerLink]="['/doctor']">Home</h3>
-            <h3>patients</h3>
-            <h3>Appointments</h3>
-            <h3>Online consultancy</h3>
-            <h3>Profile</h3>
-            <h3>Wallet</h3>
+            <h3 [routerLink]="['/doctor/patients']">patients</h3>
+            <h3 [routerLink]="['/doctor/appointments']">Appointments</h3>
+            <!-- <h3>Online consultancy</h3> -->
+            <h3 [routerLink]="['/doctor/profile']">Profile</h3>
           </div>
   
           <button
-          
+          *ngIf="!isLoggIn()"
             mat-raised-button
             color="primary"
             [routerLink]="['/doctor/login']"

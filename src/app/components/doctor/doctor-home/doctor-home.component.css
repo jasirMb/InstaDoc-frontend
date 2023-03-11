@@ -1,3 +1,32 @@
-h1 {
-    color: aqua;
+.calender {
+    display: flex;
+    justify-content: center;
+}
+.slots {
+    margin-bottom: 20px;
+}
+.containero {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    
+}
+.custom-color-button:active{
+    background-color: brown;
+}
+.custom-color-button:hover{
+    background-color: brown;
+}
+
+.custom-color-button-booked {
+    background-color: green;
+}
+.total {
+    margin: 5rem;
+    background-color: antiquewhite;
+    padding-bottom: 5rem;
+    
+}
+.heading {
+    font-weight: 600;
 }

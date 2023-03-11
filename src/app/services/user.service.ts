@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  role :string |null
   private apiUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
   signUp(data: object) {
@@ -15,8 +15,8 @@ export class UserService {
     return this.http.post(this.apiUrl + '/login', data);
   }
   isLoggedIn() {
-    this.role = localStorage.getItem('role');
-    if(this.role === "user"){
+    let role :string |null = localStorage.getItem('userToken');
+    if(role){
       return true 
     }else{
       return false
@@ -31,7 +31,7 @@ export class UserService {
     return this.http.post(this.apiUrl + '/otpVerify', values);
   }
   getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('userToken');
   }
   getDoctors() {
     return this.http.get(this.apiUrl + '/doctors');
@@ -55,4 +55,29 @@ export class UserService {
   resendOtp(token : string) {
     return this.http.patch(this.apiUrl + '/resendotp', {token});
   }
+  allAppointments () {
+    return this.http.get(this.apiUrl + "/appointments")
+  } 
+  cancel(id : string) {
+    
+    return this.http.patch(this.apiUrl + "/cancel-appointment", {id})
+  }
+  recordUpload (fd :any){
+   
+    const formData = new FormData();
+    formData.append('file',fd);
+   
+    console.log(formData.get('file'))
+    return this.http.post(this.apiUrl + "/record-upload", formData)
+  }
+  getDocuments (){
+    return this.http.get(this.apiUrl + "/get-records")
+  }
+  removeRecord(path :string) {
+    return this.http.patch(this.apiUrl + "/remove-records",{path})
+  }
+  onlineDoctor () {
+    return this.http.get(this.apiUrl + "/online-doctor")
+  }
+  
 }
