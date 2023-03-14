@@ -7,6 +7,7 @@ import Chart from 'chart.js/auto';
 })
 export class AdminHomeComponent implements AfterViewInit{
  @ViewChild('myChart') myChart!: ElementRef;
+ hello: string = ''
   ngAfterViewInit() {
     const ctx = this.myChart.nativeElement.getContext('2d');
     const myChart = new Chart(ctx, {
