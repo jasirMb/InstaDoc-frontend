@@ -13,70 +13,9 @@
     </div>
     </div>
     <div class="sortdiv d-flex justify-content-around">
-      <!-- <div class="form-check form-switch">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="flexSwitchCheckChecked"
-          checked
-        />
-        <label class="form-check-label" for="flexSwitchCheckChecked"
-          >Online Consultancy</label
-        >
-      </div>
-      <div class="dropdown">
-        <button class="btn  dropdown-toggle dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         SSpeci
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" *ngFor="let specialization of specializations" >{{specialization}}</a>
-          
-        </div>
-      </div>
-      
-      <div class="dropdown">
-        <button class="btn  dropdown-toggle dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sort by
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" >Price-Low to High</a>
-          <a class="dropdown-item" >Price-High to Low</a>
-        </div>
-      </div> -->
       
     </div>
     <div class="doccard ">
-      <!-- <div class="card text-center">
-        <div class="card-header">Featured</div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">2 days ago</div>
-         -->
-         <!-- <div class="card mb-3 d-flex" style="max-width: auto;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img class="image" src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="Image" >
-            </div>
-            <div class="col-md-7">
-              <div class="card-body">
-                <h5 class="card-title docname">John honay</h5>
-                <p class="card-text">Dentis</p>
-                <p class="card-text">10 years of experiance</p>
-                <p class="card-text fee"><b>100 rs</b>  consultation Fee</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-              <!-- </div>
-              
-            </div>
-            <div class="col-md-1">
-              <button class="btn btn-primary">jeu</button>
-            </div>
-          </div>
-        </div> -->
         <div class="paginationdiv">
   
           <div class="searchItem" *ngFor="let doctor of onlineDoctors" >
@@ -92,27 +31,15 @@
               <span class="siSubtitle">
                 {{doctor.experience}} years of experiance
               </span>
-              <!-- <span class="siFeatures">
-                Entire studio • 1 bathroom • 21m² 1 full bed
-              </span> -->
               <span class="siCancelOp">Clear your doubts </span>
-              <!-- <span class="siCancelOpSubtitle">
-                You can cancel later, so lock in this great price today!
-              </span> -->
             </div>
             <div class="siDetails">
-              <!-- <div class="siRating">
-                <span>Excellent</span>
-                <button>8.9</button>
-              </div> -->
               <div class="siDetailTexts">
                 <span class="siPrice">Online</span>
-                <!-- <span class="siTaxOp">Includes taxes and fees</span> -->
                 <button class="siCheckButton"(click)="chatNow(doctor._id)">Talk Now</button>
               </div>
             </div>
           </div>
-          <!-- <mat-paginator [pageSize]="2" [pageIndex]="pageIndex" [length]="totalItems" (page)="pageChanged($event)"></mat-paginator> -->
         </div>
     </div>
   </div>

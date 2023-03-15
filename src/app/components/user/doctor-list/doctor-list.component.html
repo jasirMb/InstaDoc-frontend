@@ -5,114 +5,59 @@
   <div class="searchdiv d-flex justify-content-center mt-2 mb-3">
     <div class="d-flex justify-content-center h-100">
       <div class="search">
-          <input type="text" class="search-input" (input)="handleSearch($event)" placeholder="Enter location or doctor name" name="search">
-          <a href="#" class="search-icon">
-              <i class="fa fa-search"></i>
-          </a>
+        <input
+          type="text"
+          class="search-input"
+          (input)="handleSearch($event)"
+          placeholder="Enter location or doctor name"
+          name="search"
+        />
+        <a href="#" class="search-icon">
+          <i class="fa fa-search"></i>
+        </a>
       </div>
+    </div>
   </div>
-  </div>
-  <div class="sortdiv d-flex justify-content-around">
-    <!-- <div class="form-check form-switch">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="flexSwitchCheckChecked"
-        checked
-      />
-      <label class="form-check-label" for="flexSwitchCheckChecked"
-        >Online Consultancy</label
+  <div class="sortdiv d-flex justify-content-around"></div>
+  <div class="doccard">
+    <div class="paginationdiv">
+      <div
+        class="searchItem"
+        *ngFor="let doctor of doctors | filter : searchTerm"
       >
-    </div>
-    <div class="dropdown">
-      <button class="btn  dropdown-toggle dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       SSpeci
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" *ngFor="let specialization of specializations" >{{specialization}}</a>
-        
-      </div>
-    </div>
-    
-    <div class="dropdown">
-      <button class="btn  dropdown-toggle dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sort by
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" >Price-Low to High</a>
-        <a class="dropdown-item" >Price-High to Low</a>
-      </div>
-    </div> -->
-    
-  </div>
-  <div class="doccard ">
-    <!-- <div class="card text-center">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-      <div class="card-footer text-muted">2 days ago</div>
-       -->
-       <!-- <div class="card mb-3 d-flex" style="max-width: auto;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img class="image" src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="Image" >
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <h5 class="card-title docname">John honay</h5>
-              <p class="card-text">Dentis</p>
-              <p class="card-text">10 years of experiance</p>
-              <p class="card-text fee"><b>100 rs</b>  consultation Fee</p>
-              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            <!-- </div>
-            
-          </div>
-          <div class="col-md-1">
-            <button class="btn btn-primary">jeu</button>
+        <img
+          src="https://media.istockphoto.com/id/1150502263/vector/doctor-icon-or-avatar-physician-with-stethoscope-medicine-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=bADu0CBwP4bDQrgIfRVjZ90RwKzTD5-MYqlFFnLD_c0="
+          alt=""
+          class="siImg"
+        />
+        <div class="siDesc">
+          <h1 class="siTitle">Dr.{{ doctor.doctorName }}</h1>
+          <span class="siDistance">{{ doctor.city }}</span>
+          <span class="siTaxiOp">{{ doctor.specialization }}</span>
+          <span class="siSubtitle">
+            {{ doctor.experience }} years of experiance
+          </span>
+          <span class="siCancelOp">Free cancellation </span>
+        </div>
+        <div class="siDetails">
+          <div class="siDetailTexts">
+            <span class="siPrice">$112</span>
+            <span class="siTaxOp">Includes taxes and fees</span>
+            <button
+              class="siCheckButton"
+              routerLink="/single-doctor/{{ doctor._id }}"
+            >
+              See availability
+            </button>
           </div>
         </div>
-      </div> -->
-      <div class="paginationdiv">
-
-        <div class="searchItem" *ngFor="let doctor of doctors | filter:searchTerm">
-          <img
-            src="https://media.istockphoto.com/id/1150502263/vector/doctor-icon-or-avatar-physician-with-stethoscope-medicine-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=bADu0CBwP4bDQrgIfRVjZ90RwKzTD5-MYqlFFnLD_c0="
-            alt=""
-            class="siImg"
-          />
-          <div class="siDesc">
-            <h1 class="siTitle">Dr.{{doctor.doctorName}}</h1>
-            <span class="siDistance">{{doctor.city}}</span>
-            <span class="siTaxiOp">{{doctor.specialization}}</span>
-            <span class="siSubtitle">
-              {{doctor.experience}} years of experiance
-            </span>
-            <!-- <span class="siFeatures">
-              Entire studio • 1 bathroom • 21m² 1 full bed
-            </span> -->
-            <span class="siCancelOp">Free cancellation </span>
-            <!-- <span class="siCancelOpSubtitle">
-              You can cancel later, so lock in this great price today!
-            </span> -->
-          </div>
-          <div class="siDetails">
-            <!-- <div class="siRating">
-              <span>Excellent</span>
-              <button>8.9</button>
-            </div> -->
-            <div class="siDetailTexts">
-              <span class="siPrice">$112</span>
-              <span class="siTaxOp">Includes taxes and fees</span>
-              <button class="siCheckButton" routerLink="/single-doctor/{{doctor._id}}" >See availability</button>
-            </div>
-          </div>
-        </div>
-        <mat-paginator [pageSize]="2" [pageIndex]="pageIndex" [length]="totalItems" (page)="pageChanged($event)"></mat-paginator>
       </div>
+      <mat-paginator
+        [pageSize]="2"
+        [pageIndex]="pageIndex"
+        [length]="totalItems"
+        (page)="pageChanged($event)"
+      ></mat-paginator>
+    </div>
   </div>
 </div>
