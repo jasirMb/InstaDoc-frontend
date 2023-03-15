@@ -1,6 +1,4 @@
 import { Component,OnInit } from '@angular/core';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { CloudinaryImage } from '@cloudinary/url-gen';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 

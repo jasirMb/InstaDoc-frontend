@@ -4,7 +4,6 @@ import { DatePipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {CloudinaryModule} from '@cloudinary/ng';
 //...................... compoonents......................................//
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/user/home/home.component';
@@ -151,7 +150,7 @@ import { PatientsComponent } from './components/doctor/patients/patients.compone
       positionClass: 'toast-center-center',
     }),
     MatDialogModule,
-    CloudinaryModule,
+    
   ],
 
   providers: [
